@@ -1,5 +1,7 @@
 import os, pyautogui, time
 
+# OPEN FILE
+
 arr = os.listdir('spamFiles')
 
 print("Available files:\n")
@@ -23,9 +25,26 @@ while True:
         continue
     break
 
+# CHOOSE TIME
+
+while True:
+    timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
+
+    try:
+        float(timer)
+        if float(timer) <= 0:
+            print("This is not a valid number!")
+            continue
+        break
+
+    except ValueError:
+        print("This is not a valid number!")
+
+# OPENING
+
 f = open(f"spamFiles\\{y}", 'r')
 
-print(f"\nYou opened: {y}!\nBe sure to focus on the window of your choice.\nStarting in:")
+print(f"\nYou opened: {y} with a timer of {timer} seconds!\nBe sure to focus on the window of your choice.\nStarting in:")
 
 x = 5
 for i in range(0, x):
@@ -33,7 +52,9 @@ for i in range(0, x):
     print("\r", end='')
     print("%i" % int(x - i), end='', flush=True)
 
+# SCRIPT
+
 for word in f:
     pyautogui.typewrite(word)
     pyautogui.press('enter')
-    time.sleep(1)
+    time.sleep(float(timer))
