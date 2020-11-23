@@ -32,7 +32,7 @@ while True:
 
     try:
         float(timer)
-        if float(timer) <= 0:
+        if float(timer) < -0.1:
             print("This is not a valid number!")
             continue
         break
@@ -52,9 +52,16 @@ for i in range(0, x):
     print("\r", end='')
     print("%i" % int(x - i), end='', flush=True)
 
+print("\r", end='')
+print("Started!", end='', flush=True)
+
 # SCRIPT
 
+float(timer)
 for word in f:
     pyautogui.typewrite(word)
     pyautogui.press('enter')
     time.sleep(float(timer))
+
+print("\r", end='')
+print("Done!", end='', flush=True)
