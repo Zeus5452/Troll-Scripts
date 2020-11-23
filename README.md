@@ -3,6 +3,7 @@ The spamFiles Folder will contain files you wish to send to people.
 To add more text files simply copy any text and put into a .txt file and place into the folder.
 
 # Setup
+
 1. Have the messaging app open in your browser or the desktop application associated with the messaging services. EX.Instagram, Facebook, What's App, Discord etc
 
 2.Open the script, main.py, in your ide of choice. We used pycharm feel free to use anything else.
