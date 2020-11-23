@@ -8,7 +8,7 @@ for i in arr:
     print(f"- {i}")
 
 while True:
-    y = input('\nChoose File: \n')
+    y = input('\nChoose File: ')
 
 
 
