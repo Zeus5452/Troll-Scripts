@@ -11,6 +11,6 @@ To add more text files simply copy any text and put into a .txt file and place i
 
 4.Choose the .txt file you want and hit enter then a timer will count down
 
-5. The counter indicates how long you have to press enter in the chat box in you message someone
+5.The counter indicates how long you have to press enter in the chat box in you message someone
 
-6. After all that is done watch the goodtimes roll lol
+6.After all that is done watch the goodtimes roll lol
