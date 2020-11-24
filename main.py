@@ -53,12 +53,6 @@ for i in range(0, x):
 print("\r", end='')
 print("Started!\n", end='', flush=True)
 
-
-while True:
-    continue
-    break
-
-countdown()
 # SCRIPT
 
 float(timer)
