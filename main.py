@@ -12,13 +12,10 @@ for i in arr:
 while True:
     y = input('\nChoose File: ')
 
-
-
     if y not in arr:
         if y == "files":
             for i in arr:
                 print(f"- {i}")
-
 
         if y != "files":
             print("Sorry, this file does not exist!\nType 'files' to see all available files.")
@@ -44,7 +41,8 @@ while True:
 
 f = open(f"spamFiles\\{y}", 'r')
 
-print(f"\nYou opened: {y} with a timer of {timer} seconds!\nBe sure to focus on the window of your choice.\nStarting in:")
+print(
+    f"\nYou opened: {y} with a timer of {timer} seconds!\nBe sure to focus on the window of your choice.\nStarting in:")
 
 x = 5
 for i in range(0, x):
@@ -53,8 +51,14 @@ for i in range(0, x):
     print("%i" % int(x - i), end='', flush=True)
 
 print("\r", end='')
-print("Started!", end='', flush=True)
+print("Started!\n", end='', flush=True)
 
+
+while True:
+    continue
+    break
+
+countdown()
 # SCRIPT
 
 float(timer)
@@ -64,4 +68,4 @@ for word in f:
     time.sleep(float(timer))
 
 print("\r", end='')
-print("Done!", end='', flush=True)
+print("Done!\n", end='', flush=True)
