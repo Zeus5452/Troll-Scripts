@@ -1,4 +1,4 @@
-import os, pyautogui, time
+import os, pyautogui, time, random, string
 
 
 def countdown(arg):
@@ -6,21 +6,6 @@ def countdown(arg):
         print("\r", end='')
         print("%i" % int(arg - i), end='', flush=True)
         time.sleep(1)
-
-
-def picktime():
-    while True:
-        timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
-
-        try:
-            float(timer)
-            if float(timer) < -0.1:
-                print("This is not a valid number!")
-                continue
-            break
-
-        except ValueError:
-            print("This is not a valid number!")
 
 
 def filespam():
@@ -63,7 +48,7 @@ def filespam():
     f = open(f"spamFiles\\{y}", 'r')
 
     print(
-        f"\nYou opened: {y} with a timer of {timer} seconds!\nBe sure to focus on the window of your "
+        f"\nYou opened: {y} with a timer of {timer} seconds!\nBe sure to focus the window of your "
         f"choice.\nStarting in:")
 
     countdown(5)
@@ -75,6 +60,53 @@ def filespam():
     float(timer)
     for word in f:
         pyautogui.typewrite(word)
+        pyautogui.press('enter')
+        time.sleep(float(timer))
+
+    print("\r", end='')
+    print("Done!", end='', flush=True)
+
+
+def randomstring():
+    while True:
+        try:
+            amount = int(input("\nHow many times does a random string have to get spammed?\nChoose a number: "))
+        except ValueError:
+            print("This is not a valid number!")
+            continue
+        break
+
+    while True:
+        try:
+            length = int(input("\nHow long does the string need to be?\nChoose a number: "))
+        except ValueError:
+            print("This is not a valid number!")
+            continue
+        break
+
+    while True:
+        timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
+
+        try:
+            float(timer)
+            if float(timer) < -0.1:
+                print("This is not a valid number!")
+                continue
+            break
+
+        except ValueError:
+            print("This is not a valid number!")
+
+    print(f"\nYou are going to spam a random string with the length of {length} characters {amount} times with a {timer} second cooldown!\nBe sure to focus the window of your choice")
+
+    countdown(5)
+    print("\r", end='')
+    print("Started!", end='', flush=True)
+
+    for i in range(0,amount):
+        letters = string.ascii_letters
+        result_str = ''.join(random.choice(letters) for i in range(length))
+        pyautogui.typewrite(result_str)
         pyautogui.press('enter')
         time.sleep(float(timer))
 
