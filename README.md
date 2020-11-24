@@ -1,4 +1,4 @@
-# Toll-Scripts
+# Troll-Scripts
 The spamFiles Folder will contain files you wish to send to people. 
 To add more text files simply copy any text and put into a .txt file and place into the folder.
 
