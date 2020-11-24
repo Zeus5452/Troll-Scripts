@@ -1,6 +1,6 @@
 import os, pyautogui, time
-from functions import *
-from filespam import *
+from func import *
+
 
 
 while True:
