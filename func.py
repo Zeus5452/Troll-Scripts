@@ -158,14 +158,13 @@ def wikispam():
 
         try:
             if selectedlang not in wikipedia.languages():
-
                 if selectedlang != wikipedia.languages():
-                    print(f"Your selected Language of {selectedlang} is not found. Try again!\n")   
+                    print(f"Your selected Language of {selectedlang} is not found. Try again!\n")
                 continue
             break
         except:
             print("This is not a language code")
-    
+    print(f"You selected the language {selectedlang} for your Wikipedia page!")
     while True:
         timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
 
@@ -177,7 +176,7 @@ def wikispam():
             break
 
         except ValueError:
-            print("This is not a valid number!")
+            print("This is not a valid number!\n")
 
     print(
         f"\nYou opened a random wiki article with a timer of {timer} seconds!\nBe sure to focus the window of your "
@@ -193,8 +192,7 @@ def wikispam():
         countdown(5)
 
         print("\r", end='')
-        print("Started!\n", end='', flush=True)
-
+        print(f"Started!\nSpamming {wikipedia.page(wikipage).title}\n", end='', flush=True)
         float(timer)
         for word in page:
             pyautogui.typewrite(word)
@@ -216,5 +214,3 @@ def restart():
 
     countdown(5)
     print("\n" * 100)
-
-
