@@ -160,11 +160,11 @@ def wikispam():
             if selectedlang not in wikipedia.languages():
 
                 if selectedlang != wikipedia.languages():
-                    print(f"Your selected Lang of {selectedlang} is not found. Try again!\n")   
+                    print(f"Your selected Language of {selectedlang} is not found. Try again!\n")   
                 continue
             break
-        except ValueError:
-            print("This is not a lang")
+        except:
+            print("This is not a language code")
     
     while True:
         timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
