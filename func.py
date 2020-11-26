@@ -164,7 +164,7 @@ def wikispam():
             break
         except:
             print("This is not a language code")
-    print(f"You selected the language {selectedlang} for your Wikipedia page!")
+    print(f"You selected the language {selectedlang} for your Wikipedia article!")
     
     while True:
         timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
