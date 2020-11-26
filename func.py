@@ -1,12 +1,15 @@
-import os, pyautogui, time, random, string
-import wikipedia, random, pyautogui,time
+import os
+import string
+import wikipedia, random, pyautogui, time
 import re
+
 alphabets = "([A-Za-z])"
 prefixes = "(Mr|St|Mrs|Ms|Dr)[.]"
 suffixes = "(Inc|Ltd|Jr|Sr|Co)"
 starters = "(Mr|Mrs|Ms|Dr|He\s|She\s|It\s|They\s|Their\s|Our\s|We\s|But\s|However\s|That\s|This\s|Wherever)"
 acronyms = "([A-Z][.][A-Z][.](?:[A-Z][.])?)"
 websites = "[.](com|net|org|io|gov)"
+
 
 def countdown(arg):
     for i in range(0, arg):
@@ -104,13 +107,14 @@ def randomstring():
         except ValueError:
             print("This is not a valid number!")
 
-    print(f"\nYou are going to spam a random string with the length of {length} characters {amount} times with a {timer} second cooldown!\nBe sure to focus the window of your choice")
+    print(
+        f"\nYou are going to spam a random string with the length of {length} characters {amount} times with a {timer} second cooldown!\nBe sure to focus the window of your choice")
 
     countdown(5)
     print("\r", end='')
     print("Started!", end='', flush=True)
 
-    for i in range(0,amount):
+    for i in range(0, amount):
         letters = string.ascii_letters
         result_str = ''.join(random.choice(letters) for i in range(length))
         pyautogui.typewrite(result_str)
@@ -149,7 +153,19 @@ def split_into_sentences(text):
 
 
 def wikispam():
+    while True:
+        selectedlang = input("Choose the language you want to spam using the UTF-8 Language Codes ex.English - en:\n")
 
+        try:
+            if selectedlang not in wikipedia.languages():
+
+                if selectedlang != wikipedia.languages():
+                    print(f"Your selected Lang of {selectedlang} is not found. Try again!\n")   
+                continue
+            break
+        except ValueError:
+            print("This is not a lang")
+    
     while True:
         timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
 
@@ -168,6 +184,7 @@ def wikispam():
         f"choice.\nStarting in:")
 
     try:
+        wikipedia.set_lang(selectedlang)
         wikipage = wikipedia.random(1)
         wikiload = wikipedia.page(wikipage).content
 
@@ -176,7 +193,7 @@ def wikispam():
         countdown(5)
 
         print("\r", end='')
-        print("Started!", end='', flush=True)
+        print("Started!\n", end='', flush=True)
 
         float(timer)
         for word in page:
@@ -186,8 +203,6 @@ def wikispam():
 
         print("\r", end='')
         print("Done!", end='', flush=True)
-
-
 
     except wikipedia.DisambiguationError as e:
         s = random.choice(e.options)
@@ -201,3 +216,5 @@ def restart():
 
     countdown(5)
     print("\n" * 100)
+
+
