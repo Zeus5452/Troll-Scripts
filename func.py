@@ -165,7 +165,7 @@ def wikispam():
         except:
             print("This is not a language code")
     print(f"You selected the language {selectedlang} for your Wikipedia article!")
-    
+
     while True:
         timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
 
@@ -206,6 +206,52 @@ def wikispam():
     except wikipedia.DisambiguationError as e:
         s = random.choice(e.options)
         p = wikipedia.pages(s)
+
+
+def stringspammer():
+    while True:
+        try:
+            amount = int(input("\nHow many times does a random string have to get spammed?\nChoose a number: "))
+        except ValueError:
+            print("This is not a valid number!")
+            continue
+        break
+
+    while True:
+        try:
+            phrase = input("\nWhat's the string you would like to spam?\n")
+        except:
+            continue
+        break
+
+    while True:
+        timer = input("\nHow long do you want the time in between messages to be (sec)?\nChoose a number: ")
+
+        try:
+            float(timer)
+            if float(timer) < -0.1:
+                print("This is not a valid number!")
+                continue
+            break
+
+        except ValueError:
+            print("This is not a valid number!")
+
+    print(
+        f"\nYou are going to spam the string {phrase}, {amount} times with a {timer} second cooldown!\nBe sure to focus the window of your choice")
+
+    countdown(5)
+    print("\r", end='')
+    print("Started!\n", end='', flush=True)
+
+    for i in range(0, amount):
+        result_str = phrase
+        pyautogui.typewrite(result_str)
+        pyautogui.press('enter')
+        time.sleep(float(timer))
+
+    print("\r", end='')
+    print("Done!", end='', flush=True)
 
 
 def restart():

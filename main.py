@@ -8,6 +8,7 @@ while True:
     print("1. Filespam - Spams everything word for word in a certain txt file")
     print("2. Random string spam - Spams a random string")
     print("3. Wikispam - Spams a random wikipedia article")
+    print("4. Stringspam - Spams a inputted string")
 
     f = input("\nType the corresponding number to the option you want to pick\n> ")
 
@@ -26,7 +27,10 @@ while True:
         wikispam()
         restart()
 
-
+    if f == str(4):
+        print("\nYou picked: String Spammer!\n\n")
+        stringspammer()
+        restart()
 
 
 
