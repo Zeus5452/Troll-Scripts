@@ -55,8 +55,7 @@ def filespam():
 
     # OPENING
 
-    f = open(f"spamFiles\\{y}", 'r')
-
+    f = open(f"spamFiles\\{y}", 'r', encoding='utf-8')
     print(
         f"\nYou opened: {y} with a timer of {timer} seconds!\nBe sure to focus the window of your "
         f"choice.\nStarting in:")
